@@ -6,27 +6,190 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>MainWindow</string>
+  <property name="acceptDrops">
+   <bool>true</bool>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
-  <widget class="QMenuBar" name="menuBar">
+  <property name="windowTitle">
+   <string>OFFIS Automation Framework</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_project"/>
+    <addaction name="actionNew_project"/>
+    <addaction name="actionClose_project"/>
+    <addaction name="actionReload_project"/>
+    <addaction name="actionRecent_projects"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionSearch_for_updates"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout_OFFIS_Automation_Toolbox"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menuHelp"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen_project">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/img/loadProject.png</normaloff>:/img/loadProject.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open project</string>
+   </property>
+  </action>
+  <action name="actionNew_project">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/img/newProject.png</normaloff>:/img/newProject.png</iconset>
+   </property>
+   <property name="text">
+    <string>New project</string>
+   </property>
+  </action>
+  <action name="actionRecent_projects">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/img/project.png</normaloff>:/img/project.png</iconset>
+   </property>
+   <property name="text">
+    <string>Recent projects</string>
+   </property>
+  </action>
+  <action name="actionClose_project">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/img/closeProject.png</normaloff>:/img/closeProject.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close project</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/img/close.png</normaloff>:/img/close.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit the application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionSupport">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/hilecGui/help.png</normaloff>:/hilecGui/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>Technical Support</string>
+   </property>
+  </action>
+  <action name="actionReport_errors">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/img/bug.png</normaloff>:/img/bug.png</iconset>
+   </property>
+   <property name="text">
+    <string>Report errors</string>
+   </property>
+  </action>
+  <action name="actionAbout_OFFIS_Automation_Toolbox">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/img/icon.ico</normaloff>:/img/icon.ico</iconset>
+   </property>
+   <property name="text">
+    <string>About OFFIS Automation Framework</string>
+   </property>
+  </action>
+  <action name="actionUpdate_components">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/olvisGui/bullet_wrench.png</normaloff>:/olvisGui/bullet_wrench.png</iconset>
+   </property>
+   <property name="text">
+    <string>Update components</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ProjectEditor/information.png</normaloff>:/ProjectEditor/information.png</iconset>
+   </property>
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionReload_project">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/img/arrow_refresh.png</normaloff>:/img/arrow_refresh.png</iconset>
+   </property>
+   <property name="text">
+    <string>Reload project</string>
+   </property>
+   <property name="toolTip">
+    <string>Reload the current project</string>
+   </property>
+  </action>
+  <action name="actionSearch_for_updates">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/img/arrow_refresh.png</normaloff>:/img/arrow_refresh.png</iconset>
+   </property>
+   <property name="text">
+    <string>Search for updates</string>
+   </property>
+  </action>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

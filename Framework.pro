@@ -17,6 +17,5 @@
 TEMPLATE = subdirs
 CONFIG += ordered
 
-# Do all the other stuff
 SUBDIRS += modules/frontend \
     modules/vision

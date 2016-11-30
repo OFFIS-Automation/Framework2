@@ -14,20 +14,20 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef GUIPLUGININTERFACE_H
-#define GUIPLUGININTERFACE_H
+#include "VisionSingleton.h"
 
-class GuiPluginInterface
+VisionInterface* VisionSingleton::mInterface = 0;
+
+VisionSingleton::VisionSingleton()
 {
-public:
-    virtual QString getName() const = 0;
-    virtual void initialize(const QString& pluginDir) = 0;
-    virtual void deinitialize() = 0;
-    virtual void addElements(MainWindowInterface* mainWindow) = 0;
-    virtual void loadProject(const QString& projectFile) { Q_UNUSED(projectFile); }
-    virtual void closeProject() {}
-};
-#define GuiPluginInterface_iid "com.offis.framework.GuiPluginInterface/1.1"
-Q_DECLARE_INTERFACE(GuiPluginInterface, GuiPluginInterface_iid)
+}
 
-#endif // GUIPLUGININTERFACE_H
+VisionInterface& VisionSingleton::instance()
+{
+    return *mInterface;
+}
+
+void VisionSingleton::setInstance(VisionInterface& visionInterface)
+{
+    mInterface = &visionInterface;
+}

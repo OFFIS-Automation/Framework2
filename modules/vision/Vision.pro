@@ -16,3 +16,8 @@
 
 TEMPLATE = subdirs
 CONFIG += ordered
+
+SUBDIRS += modules/filter \
+    modules/filterPorts \
+    modules/GUIPlugin \
+    modules/core

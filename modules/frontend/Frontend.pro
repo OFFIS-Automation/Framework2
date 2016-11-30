@@ -33,6 +33,7 @@ RC_FILE = appIcon.rc
 DESTDIR = $${targetDir}
 
 INCLUDEPATH += $$(OFFIS_DEVELOPMENT_ENVIRONMENT)/winSparkle/include
+INCLUDEPATH += $${PWD}/include
 
 CONFIG(debug, debug|release) {
     LIBS += -L$$(OFFIS_DEVELOPMENT_ENVIRONMENT)/winSparkle/lib/debug -lWinSparkle
@@ -42,14 +43,16 @@ CONFIG(debug, debug|release) {
 
 SOURCES += src/main.cpp\
     src/mainwindow.cpp\
-    src/application.cpp
+    src/application.cpp \
+    src/PluginLoader.cpp \
 
-HEADERS += includes/GuiPluginInterface.h \
-    src/mainwindow.h\
+HEADERS += src/mainwindow.h\
     src/application.h\
-    src/version.h
+    src/version.h \
+    src/PluginLoader.h \
 
-FORMS   += src/mainwindow.ui
+FORMS   += \
+    src/mainwindow.ui
 
 dlls.path  =  $${DESTDIR}
 dllPlatforms.path   += $${DESTDIR}/platforms
